@@ -160,6 +160,11 @@ class ActivitiesLabel extends Component {
             },
             vAxis: {
               title: "Etiquetas"
+            },
+            animation: {
+              duration: 1000,
+              easing: "out",
+              startup: true
             }
           }}
         />
