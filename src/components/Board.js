@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import { Row, Col, ListGroup, ListGroupItem } from "reactstrap";
+import { Row, Col, ListGroup, ListGroupItem, Button } from "reactstrap";
 import ReactLoading from "react-loading";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSyncAlt } from "@fortawesome/free-solid-svg-icons";
+
 import View from "./View";
 
 class Board extends Component {
@@ -17,7 +20,11 @@ class Board extends Component {
     this.labels();
   };
 
+  loading = () => this.setState({ loading: true });
+
   board = async () => {
+    await this.loading();
+
     const {
       match: {
         params: { board_id }
@@ -35,6 +42,7 @@ class Board extends Component {
   };
 
   labels = async () => {
+    await this.loading();
     const {
       match: {
         params: { board_id }
@@ -71,12 +79,21 @@ class Board extends Component {
     return (
       <>
         <Row>
-          <Col>
+          <Col xs={11}>
             <h3>
               <a href={board.url} target="_blank" rel="noopener noreferrer">
                 {" "}
                 {board.name}
               </a>
+              <Button
+                color="default"
+                onClick={() => {
+                  this.board();
+                  this.labels();
+                }}
+              >
+                <FontAwesomeIcon icon={faSyncAlt} />
+              </Button>
             </h3>
           </Col>
         </Row>

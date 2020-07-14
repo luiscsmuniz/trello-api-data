@@ -101,6 +101,11 @@ class TimeActivities extends Component {
           },
           vAxis: {
             title: "Atividades"
+          },
+          animation: {
+            duration: 1000,
+            easing: "out",
+            startup: true
           }
         }}
         // For tests
