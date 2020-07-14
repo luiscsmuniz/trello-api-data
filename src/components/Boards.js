@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ListGroup, ListGroupItem, Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
+import { api } from "../utils/key";
 
 class Boards extends Component {
   state = {
@@ -15,9 +16,9 @@ class Boards extends Component {
 
   boards = async () => {
     const response = await fetch(
-      `https://api.trello.com/1/members/me/boards?key=${
-        process.env.API_KEY
-      }&token=${localStorage.getItem("trello_token")}`
+      `https://api.trello.com/1/members/me/boards?key=${api}&token=${localStorage.getItem(
+        "trello_token"
+      )}`
     );
 
     const boards = await response.json();

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import TrelloClient from "react-trello-client";
+import { api } from "../utils/key";
 
 class Login extends Component {
   render() {
     return (
       <TrelloClient
-        apiKey={process.env.API_KEY} // Get the API key from https://trello.com/app-key/
+        apiKey={api} // Get the API key from https://trello.com/app-key/
         clientVersion={1} // number: {1}, {2}, {3}
         apiEndpoint="https://api.trello.com" // string: "https://api.trello.com"
         authEndpoint="https://trello.com" // string: "https://trello.com"
