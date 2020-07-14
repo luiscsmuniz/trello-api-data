@@ -6,7 +6,6 @@ import ReactLoading from "react-loading";
 
 import { isEmptyOrNil } from "../utils/isEmptyOrNil";
 import ChartView from "./ChartView";
-import { api } from "../utils/key";
 
 class Charts extends Component {
   state = {
@@ -40,9 +39,9 @@ class Charts extends Component {
   cards = async () => {
     const { board_id } = this.props;
     const response = await fetch(
-      `https://api.trello.com/1/boards/${board_id}/cards?key=${api}&token=${localStorage.getItem(
-        "trello_token"
-      )}`
+      `https://api.trello.com/1/boards/${board_id}/cards?key=${
+        process.env.REACT_APP_KEY
+      }&token=${localStorage.getItem("trello_token")}`
     );
 
     const cards = await response.json();

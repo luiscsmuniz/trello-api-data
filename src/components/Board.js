@@ -32,7 +32,7 @@ class Board extends Component {
     } = this.props;
     const response = await fetch(
       `https://api.trello.com/1/boards/${board_id}?key=${
-        process.env.API_KEY
+        process.env.REACT_APP_KEY
       }&token=${localStorage.getItem("trello_token")}`
     );
 
