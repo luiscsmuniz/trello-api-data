@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
 
-import logo from "./images/trello.png";
+import logo from "./trello.png";
 import Screen from "./components/Screen";
 
 class App extends Component {
