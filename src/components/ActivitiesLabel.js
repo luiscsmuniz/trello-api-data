@@ -139,7 +139,12 @@ class ActivitiesLabel extends Component {
           width={"700px"}
           height={"400px"}
           chartType="BarChart"
-          style={{ margin: "0 auto" }}
+          style={{
+            margin: "0 auto",
+            width: "100%",
+            minHeight: "400px",
+            maxHeight: "600px"
+          }}
           loader={<div>Loading Chart</div>}
           data={[
             [

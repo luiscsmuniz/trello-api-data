@@ -108,9 +108,12 @@ class PercentageActivities extends Component {
     return (
       <div className="text-center">
         <Chart
-          width={"600px"}
-          height={"400px"}
-          style={{ margin: "0 auto" }}
+          style={{
+            margin: "0 auto",
+            width: "100%",
+            minHeight: "400px",
+            maxHeight: "600px"
+          }}
           chartType="PieChart"
           loader={<div>Loading Chart</div>}
           data={[["Label", "Atividades"], ...pieChart]}

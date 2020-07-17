@@ -138,7 +138,7 @@ class Charts extends Component {
           </Col>
         </Row>
         <Row>
-          <Col className="text-center">
+          <Col>
             <ChartView
               options={apply}
               cards={cards}
