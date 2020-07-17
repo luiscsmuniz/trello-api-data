@@ -11,10 +11,6 @@ import Screen from "./components/Screen";
 class App extends Component {
   state = { hasError: false };
 
-  componentDidMount = () => {
-    throw new Error("ERRO");
-  };
-
   componentDidCatch(error, info) {
     // Display fallback UI
     this.setState({ hasError: true });
@@ -28,11 +24,6 @@ class App extends Component {
   };
 
   render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
-    }
-
     return (
       <Router>
         <Header logout={this.logout} />
@@ -41,18 +32,22 @@ class App extends Component {
             <Screen />
           ) : (
             <Row>
-              <Col xs={6} className="offset-3 text-center mt-3">
-                <Card>
-                  <CardImg
-                    src={logo}
-                    top
-                    style={{ width: "216px", margin: "0 auto" }}
-                  />
-                  <CardBody>
-                    <Login />
-                  </CardBody>
-                </Card>
-              </Col>
+              {this.state.hasError ? (
+                <p>Algo deu errado... :(</p>
+              ) : (
+                <Col xs={6} className="offset-3 text-center mt-3">
+                  <Card>
+                    <CardImg
+                      src={logo}
+                      top
+                      style={{ width: "216px", margin: "0 auto" }}
+                    />
+                    <CardBody>
+                      <Login />
+                    </CardBody>
+                  </Card>
+                </Col>
+              )}
             </Row>
           )}
         </div>
