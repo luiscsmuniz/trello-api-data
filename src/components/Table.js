@@ -108,7 +108,7 @@ class Table extends Component {
             </Button>
           </Col>
         </Row>
-        <Tabela className="mt-1">
+        <Tabela className="mt-1 table-responsive">
           <thead>
             <tr>
               <th>Data de criação</th>
