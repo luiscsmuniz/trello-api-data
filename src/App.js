@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Media, Card, CardImg, CardBody } from "reactstrap";
+import { Row, Col, Card, CardImg, CardBody } from "reactstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -9,12 +9,30 @@ import logo from "./trello.png";
 import Screen from "./components/Screen";
 
 class App extends Component {
+  state = { hasError: false };
+
+  componentDidMount = () => {
+    throw new Error("ERRO");
+  };
+
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true });
+    // You can also log the error to an error reporting service
+    console.log(error, info);
+  }
+
   logout = () => {
     localStorage.clear("trello_token");
     window.location.href = "/";
   };
 
   render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
     return (
       <Router>
         <Header logout={this.logout} />
